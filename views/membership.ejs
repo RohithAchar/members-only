@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Become a member</title>
+  </head>
+  <body>
+    <h1>Answer the riddle to become a member</h1>
+
+    <% if(hints && hints.length > 0) { %>
+    <h3>Hints</h3>
+    <ul>
+      <% hints.forEach((hint) => { %>
+      <li><%= hint %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+
+    <form action="/membership" method="post">
+      <label for="answer"
+        >I can only live where there is light, but I die if the light shines on
+        me. What am I?</label
+      >
+      <input type="text" name="answer" id="answer" required />
+      <button type="submit">Submit</button>
+
+      <% if(isWrong) { %>
+      <script>
+        alert("Wrong try again");
+      </script>
+      <p>Try again!!!</p>
+      <% } %>
+    </form>
+  </body>
+</html>

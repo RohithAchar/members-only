@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message</title>
+  </head>
+  <body>
+    <form action="/message" method="post">
+      <input name="id" type="text" value="<%= userid %>" hidden />
+      <label for="message">Message</label>
+      <textarea name="message" id="message"></textarea>
+      <button type="submit">Send</button>
+      <% if(!membership) { %>
+      <a href="/membership">Become a member</a>
+      <% } %>
+    </form>
+    <div>
+      <h1>Messages</h1>
+      <% messages.map((msg) => { %>
+      <p><%= msg.message %></p>
+      <% if(membership) { %>
+      <p>By: <%= msg.firstname %></p>
+      <% } %> <% }) %>
+    </div>
+  </body>
+</html>

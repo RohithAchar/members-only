@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <% if(locals.errors) {%>
+    <ul>
+      <% errors.forEach(err => { %>
+      <li><%= err.msg %></li>
+      <% }); %>
+    </ul>
+    <% } %>
+    <form action="/register" method="post">
+      <div>
+        <label for="firstname">Firstname</label>
+        <input type="text" id="firstname" name="firstname" required />
+      </div>
+      <div>
+        <label for="lastname">Lastname</label>
+        <input type="text" id="lastname" name="lastname" required />
+      </div>
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
